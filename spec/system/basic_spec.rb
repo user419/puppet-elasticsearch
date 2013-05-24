@@ -2,7 +2,7 @@ require 'spec_helper_system'
 
 describe 'basic tests:' do
   # Here we create the var 'pp' to be later tested
-  let(pp) do
+  let(:pp) do
     pp = <<-EOS
       class { 'elasticsearch': }
     EOS
