@@ -1,4 +1,5 @@
-equire 'spec_helper_system'
+require 'spec_helper_system'
+
 describe 'basic tests:' do
   # Here we create the var 'pp' to be later tested
   let(pp) do
