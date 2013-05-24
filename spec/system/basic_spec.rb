@@ -3,7 +3,7 @@ describe 'basic tests:' do
   # Here we create the var 'pp' to be later tested
   let(pp) do
     pp = <<-EOS
-      class { 'mymodule': }
+      class { 'elasticsearch': }
     EOS
   end
 
