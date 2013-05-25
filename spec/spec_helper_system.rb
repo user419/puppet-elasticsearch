@@ -17,6 +17,8 @@ RSpec.configure do |c|
     puppet_install
     puppet_master_install
 
+    system_run('puppet module install puppetlabs/stdlib')
+
     # Replace mymodule with your module name
     puppet_module_install(:source => proj_root, :module_name => 'elasticsearch')
   end
