@@ -6,6 +6,19 @@ http://www.elasticsearch.org/
 
 [![Build Status](https://travis-ci.org/electrical/puppet-elasticsearch.png?branch=master)](https://travis-ci.org/electrical/puppet-elasticsearch)
 
+## Download Binaries
+
+Getting 0.90.1
+
+     wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.1.noarch.rpm
+
+Getting 0.20.4 (Recommended for Graylog2 0.11.0)
+
+     wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.20.4.tar.gz
+     tar xvf elasticsearch-0.20.4.tar.gz
+     fpm -a all -s dir -t rpm --prefix /opt/ -n elasticsearch -v 0.20.4~1 -m '<Your-name>' -d java-1.6.0-openjdk ./elasticsearch-0.20.4
+
+
 ## Usage
 
 Installation, make sure service is running and will be started at boot time:

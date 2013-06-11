@@ -50,4 +50,32 @@ class elasticsearch::config {
     notify  => $notify_elasticsearch,
   }
 
+  group { "${elasticsearch::service_settings["ES_GROUP"]}":
+    ensure => "present",
+  }
+
+  user { "${elasticsearch::service_settings["ES_USER"]}":
+    groups     => "${elasticsearch::service_settings["ES_GROUP"]}",
+    comment    => 'This user was created by Puppet',
+    ensure     => 'present',
+    managehome => 'false',
+    require    => Group["${elasticsearch::service_settings["ES_GROUP"]}"],
+ }
+
+ ##
+ #  Very much version 20.4 related
+ ##
+  file { "/var/run/elasticsearch":
+    ensure  => directory,
+    owner   => "${elasticsearch::service_settings["ES_USER"]}",
+    group   => "${elasticsearch::service_settings["ES_GROUP"]}",
+    mode    => '0644',
+  }
+  file { "/opt/elasticsearch-0.20.4":
+    ensure  => directory,
+    owner   => "${elasticsearch::service_settings["ES_USER"]}",
+    group   => "${elasticsearch::service_settings["ES_GROUP"]}",
+    mode    => '0644',
+  }
+
 }
